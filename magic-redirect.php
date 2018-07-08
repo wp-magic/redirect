@@ -14,10 +14,4 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'MAGIC_REDIRECT_SLUG', 'magic_redirect' );
 
-require_once 'includes/fallback/index.php';
-
-if ( is_admin() ) {
-  require_once 'includes/admin/dashboard.php';
-}
-
-require_once 'includes/plugin.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/plugin.php';
