@@ -5,25 +5,25 @@ add_action( 'admin_menu', function () {
 
   $settings = array(
     array(
-      'name' => 'magic_redirect_author_hide',
+      'name' => 'author_hide',
       'type' => 'checkbox',
       'default' => false,
       'label' => 'Hide all author pages',
     ),
     array(
-      'name' => 'magic_redirect_author_redirect',
+      'name' => 'author_redirect',
       'type' => 'text',
       'default' => '/',
       'label' => 'Redirect author pages to',
     ),
     array(
-      'name' => 'magic_redirect_attachment_hide',
+      'name' => 'attachment_hide',
       'type' => 'checkbox',
       'default' => false,
       'label' => 'Hide all attachment pages',
     ),
     array(
-      'name' => 'magic_redirect_attachment_redirect',
+      'name' => 'attachment_redirect',
       'type' => 'text',
       'default' => '/',
       'label' => 'Redirect attachment pages to',
