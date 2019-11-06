@@ -1,12 +1,15 @@
 <?php
-/*
-Plugin Name: Magic Redirects
-Description: Makes attachment and author pages redirect somewhere else.
-Author: Jascha Ehrenreich
-Version: 0.0.1
-Author URI: https://github.com/wp-magic/plugin-redirect
-License: GPLv3
-*/
+/**
+ * Plugin Name: MagicRedirect
+ * Description: Makes attachment and author pages redirect somewhere else.
+ * Author: Jascha Ehrenreich
+ * Version: 0.0.1
+ * Author URI: https://github.com/wp-magic/plugin-redirect
+ * License: GPLv3
+ *
+ * @package MagicRedirect
+ * @since 0.0.1
+ */
 
 if ( ! defined( 'WPINC' ) ) {
 	die;
