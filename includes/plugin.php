@@ -18,8 +18,7 @@ add_action(
 		$hide_attachments    = magic_get_option( MAGIC_REDIRECT_SLUG . '_attachment_hide', false );
 		$attachment_redirect = magic_get_option( MAGIC_REDIRECT_SLUG . '_attachment_redirect', '/' );
 		if ( $hide_attachments && is_attachment() ) {
-			wp_safe_redirect( '/', 301 );
-			exit;
+			magic_redirect( '/', 301 );
 		}
 
 		$hide_authors    = magic_get_option( MAGIC_REDIRECT_SLUG . '_author_hide', false );
@@ -27,13 +26,11 @@ add_action(
 		if ( $hide_authors ) {
 			$url = add_query_arg( array(), $wp->request );
 			if ( strpos( $url, 'author' ) === 0 ) {
-				wp_safe_redirect( $author_redirect, 301 );
-				exit;
+				magic_redirect( $author_redirect, 301 );
 			}
 
 			if ( is_author() ) {
-				wp_safe_redirect( $author_redirect, 301 );
-				exit;
+				magic_redirect( $author_redirect, 301 );
 			}
 		}
 	},
