@@ -7,40 +7,37 @@
  */
 
 /**
- * Include plugin functionality
+ * Load admin dashboard if needed
+ *
+ * @since 0.0.1
+ */
+if ( is_admin() ) {
+	require_once 'admin/dashboard.php';
+}
+
+/**
+ * Include plugin functionality.
  */
 add_action(
 	'template_redirect',
 	function () {
 		global $post;
 		global $wp;
+		global $wp_query;
 
-		$hide_attachments    = magic_get_option( MAGIC_REDIRECT_SLUG . '_attachment_hide', false );
-		$attachment_redirect = magic_get_option( MAGIC_REDIRECT_SLUG . '_attachment_redirect', '/' );
+		$hide_attachments = magic_get_option( MAGIC_REDIRECT_SLUG . '_attachment_hide', false );
 		if ( $hide_attachments && is_attachment() ) {
-			magic_redirect( '/', 301 );
+			global $wp_query;
+			$wp_query->is_404 = true;
 		}
 
-		$hide_authors    = magic_get_option( MAGIC_REDIRECT_SLUG . '_author_hide', false );
-		$author_redirect = magic_get_option( MAGIC_REDIRECT_SLUG . '_author_redirect', '/' );
+		$hide_authors = magic_get_option( MAGIC_REDIRECT_SLUG . '_author_hide', false );
 		if ( $hide_authors ) {
 			$url = add_query_arg( array(), $wp->request );
-			if ( strpos( $url, 'author' ) === 0 ) {
-				magic_redirect( $author_redirect, 301 );
-			}
-
-			if ( is_author() ) {
-				magic_redirect( $author_redirect, 301 );
+			if ( strpos( $url, 'author' ) === 0 || is_author() ) {
+				$wp_query->is_404 = true;
 			}
 		}
 	},
 	1
 );
-
-
-/**
- * Include Admin interface
- */
-if ( is_admin() ) {
-	require_once 'admin/dashboard.php';
-}

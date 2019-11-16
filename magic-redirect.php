@@ -16,5 +16,11 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'MAGIC_REDIRECT_SLUG', 'magic_redirect' );
+define( 'MAGIC_REDIRECT_POST_SETTINGS_ACTION', 'magic_redirect_post_settings' );
 
+/**
+ * Include functionality
+ *
+ * @since 0.0.1
+ */
 require_once plugin_dir_path( __FILE__ ) . 'includes/plugin.php';

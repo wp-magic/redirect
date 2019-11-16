@@ -19,22 +19,10 @@ add_action(
 				'label'   => 'Hide all author pages',
 			),
 			array(
-				'name'    => 'author_redirect',
-				'type'    => 'text',
-				'default' => '/',
-				'label'   => 'Redirect author pages to',
-			),
-			array(
 				'name'    => 'attachment_hide',
 				'type'    => 'checkbox',
 				'default' => false,
 				'label'   => 'Hide all attachment pages',
-			),
-			array(
-				'name'    => 'attachment_redirect',
-				'type'    => 'text',
-				'default' => '/',
-				'label'   => 'Redirect attachment pages to',
 			),
 		);
 
@@ -44,6 +32,7 @@ add_action(
 				'slug'     => MAGIC_REDIRECT_SLUG,
 				'title'    => $title,
 				'settings' => $settings,
+				'action'   => MAGIC_REDIRECT_POST_SETTINGS_ACTION,
 			)
 		);
 	},
